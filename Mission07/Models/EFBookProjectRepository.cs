@@ -14,5 +14,23 @@ namespace Mission07.Models
         }
         // make it queryable
         public IQueryable<Book> Books => context.Books;
+
+        // implement inherited methods
+        public void SaveProject(Book b)
+        {
+            context.SaveChanges();
+        }
+
+        public void CreateProject(Book b)
+        {
+            context.Add(b);
+            context.SaveChanges();
+        }
+
+        public void DeleteProject(Book b)
+        {
+            context.Remove(b);
+            context.SaveChanges();
+        }
     }
 }

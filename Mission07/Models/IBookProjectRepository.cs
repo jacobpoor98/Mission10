@@ -7,5 +7,10 @@ namespace Mission07.Models
     public interface IBookProjectRepository
     {
         IQueryable<Book> Books { get; }
+
+        // add methods
+        public void SaveProject(Book b);
+        public void CreateProject(Book b);
+        public void DeleteProject(Book b);
     }
 }

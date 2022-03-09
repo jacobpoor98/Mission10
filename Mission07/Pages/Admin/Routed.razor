@@ -1,0 +1,13 @@
+﻿<Router AppAssembly="typeof(Startup).Assembly">
+
+    @* if the route is found, take to that route *@
+    <Found>
+        <RouteView RouteData="@context" DefaultLayout="typeof(AdminLayout)"></RouteView>
+    </Found>
+
+    @* if the route is not found, display error page *@
+    <NotFound>
+        <h4 class="bg-danger text-white text-center p-2">No Matching Route Found</h4>
+    </NotFound>
+
+</Router>

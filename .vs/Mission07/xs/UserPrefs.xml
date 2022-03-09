@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{6A21751D-2A49-4777-9929-72C2454BAF2B}|Default">
+  <MonoDevelop.Ide.ItemProperties.Mission07 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Models/Books.cs">
+    <Files>
+      <File FileName="Mission07/Pages/Admin/Index.cshtml" Line="23" Column="61" />
+      <File FileName="Mission07/Pages/Admin/Index.cshtml.cs" Line="10" Column="51" />
+      <File FileName="Mission07/Pages/Admin/_Imports.razor" Line="1" Column="23" />
+      <File FileName="Mission07/Pages/Admin/Routed.razor" Line="3" Column="50" />
+      <File FileName="Mission07/Pages/Admin/Books.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/Orders.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/AdminLayout.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Startup.cs" Line="105" Column="72" />
+      <File FileName="Mission07/Models/Books.cs" Line="16" Column="15" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Mission07" expanded="True">
+            <Node name="Mission07" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="Books.cs" selected="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="Admin" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

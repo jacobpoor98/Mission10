@@ -72,6 +72,9 @@ namespace Mission07.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Shipped")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -121,7 +124,7 @@ namespace Mission07.Migrations
             modelBuilder.Entity("Mission07.Models.BasketLineItem", b =>
                 {
                     b.HasOne("Mission07.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("Lines")
                         .HasForeignKey("BookId");
 
                     b.HasOne("Mission07.Models.Purchase", null)

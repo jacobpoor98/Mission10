@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -13,7 +14,13 @@ namespace Mission07.Models
         // create Books table with various entries
         [Key]
         [Required]
+        [BindNever]
         public long BookId { get; set; }
+
+        // bring in the order
+        [BindNever]
+        public ICollection<BasketLineItem> Lines { get; set; }
+
         [Required]
         public string Title { get; set; }
         [Required]
@@ -30,5 +37,9 @@ namespace Mission07.Models
         public long PageCount { get; set; }
         [Required]
         public double Price { get; set; }
+
+        // add a shipped true/false
+        [BindNever]
+        public bool Shipped { get; set; }
     }
 }
