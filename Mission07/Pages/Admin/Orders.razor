@@ -1,10 +1,47 @@
 ﻿@page "/admin/orders"
-@inherits OwningComponentBase<IBookProjectRepository>
+@inherits OwningComponentBase<IPurchaseRepository>
 
-<h3>Ham</h3>
+@* generate a table for orders that have not been shipped yet *@
+<OrderTable TableTitle="Orders Not Shipped" Orders="NotShippedOrders"
+            ButtonLabel="Shipped" OrderSelected="OrderShipped"></OrderTable>
 
+@* generate a table for orders that have been shipped *@
+<OrderTable TableTitle="Orders Shipped" Orders="ShippedOrders"
+            ButtonLabel="Reset" OrderSelected="ResetShippedInfo"></OrderTable>
 
+@* add a button to refresh the data *@
+<button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Orders</button>
 
 @code {
+
+    // bring in IPurchaseRespository
+    public IPurchaseRepository repo => Service;
+
+    // initialize variables
+    public IEnumerable<Purchase> AllOrders { get; set; }
+    public IEnumerable<Purchase> NotShippedOrders { get; set; }
+    public IEnumerable<Purchase> ShippedOrders { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AllOrders = await repo.Purchases.ToListAsync();
+        NotShippedOrders = AllOrders.Where(x => !x.Shipped);
+        ShippedOrders = AllOrders.Where(x => x.Shipped);
+    }
+
+    public void OrderShipped(int id) => UpdatePurchase(id, true);
+    public void ResetShippedInfo(int id) => UpdatePurchase(id, false);
+
+    private void UpdatePurchase(int id, bool shipped)
+    {
+        Purchase p = repo.Purchases.FirstOrDefault(x => x.PurchaseId == id);
+        p.Shipped = shipped;
+        repo.SavePurchase(p);
+    }
 
 }

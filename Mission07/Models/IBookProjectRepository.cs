@@ -9,8 +9,8 @@ namespace Mission07.Models
         IQueryable<Book> Books { get; }
 
         // add methods
-        public void SaveProject(Book b);
-        public void CreateProject(Book b);
-        public void DeleteProject(Book b);
+        public void SaveBook(Book b);
+        public void CreateBook(Book b);
+        public void DeleteBook(Book b);
     }
 }

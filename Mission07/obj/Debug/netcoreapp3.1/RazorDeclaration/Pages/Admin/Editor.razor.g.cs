@@ -53,9 +53,9 @@ using Mission07.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class Books : OwningComponentBase<IBookProjectRepository>
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books/edit/{id:long}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books/create")]
+    public partial class Editor : OwningComponentBase<IBookProjectRepository>
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,35 +63,46 @@ using Mission07.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Books.razor"
+#line 75 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Editor.razor"
        
 
-    // bring in the IBookProjectRepository
+    [Parameter]
+    public long Id { get; set; }
+
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
+
+    public string TitleText => Id == 0 ? "Add" : "Edit";
+
+    public Book b { get; set; } = new Book();
+
     public IBookProjectRepository repo => Service;
 
-    public IEnumerable<Book> BookData { get; set; }
-
-    // add some methods
-    protected async override Task OnInitializedAsync()
+    protected override void OnParametersSet()
     {
-        await UpdateData();
+        // method for an exisiting book
+        if (Id != 0)
+        {
+            b = repo.Books.FirstOrDefault(x => x.BookId == Id);
+        }
     }
 
-    public async Task UpdateData()
+    public void SaveBook()
     {
-        BookData = await repo.Books.ToListAsync();
+        // for a new project
+        if (Id == 0)
+        {
+            repo.CreateBook(b);
+        }
+        else
+        {
+            repo.SaveBook(b);
+        }
+
+        NavManager.NavigateTo("/admin/books");
     }
 
-    // create paths for getting details and editing so that it takes you to that page
-    // given the BookId passed
-    public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
-
-    public async Task RemoveBook(Book b)
-    {
-        repo.DeleteBook(b);
-        await UpdateData();
-    }
+    [Inject]
+    public NavigationManager NavManager { get; set; }
 
 
 #line default

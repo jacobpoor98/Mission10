@@ -53,9 +53,7 @@ using Mission07.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class Books : OwningComponentBase<IBookProjectRepository>
+    public partial class OrderTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,35 +61,21 @@ using Mission07.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Books.razor"
+#line 56 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/OrderTable.razor"
        
 
-    // bring in the IBookProjectRepository
-    public IBookProjectRepository repo => Service;
+    //initilaize some variables
+    [Parameter]
+    public string TableTitle { get; set; } = "Orders";
 
-    public IEnumerable<Book> BookData { get; set; }
+    [Parameter]
+    public IEnumerable<Purchase> Orders { get; set; }
 
-    // add some methods
-    protected async override Task OnInitializedAsync()
-    {
-        await UpdateData();
-    }
+    [Parameter]
+    public string ButtonLabel { get; set; } = "Shipped";
 
-    public async Task UpdateData()
-    {
-        BookData = await repo.Books.ToListAsync();
-    }
-
-    // create paths for getting details and editing so that it takes you to that page
-    // given the BookId passed
-    public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
-
-    public async Task RemoveBook(Book b)
-    {
-        repo.DeleteBook(b);
-        await UpdateData();
-    }
+    [Parameter]
+    public EventCallback<int> OrderSelected { get; set; }
 
 
 #line default

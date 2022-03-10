@@ -14,12 +14,7 @@ namespace Mission07.Models
         // create Books table with various entries
         [Key]
         [Required]
-        [BindNever]
         public long BookId { get; set; }
-
-        // bring in the order
-        [BindNever]
-        public ICollection<BasketLineItem> Lines { get; set; }
 
         [Required]
         public string Title { get; set; }
@@ -37,9 +32,5 @@ namespace Mission07.Models
         public long PageCount { get; set; }
         [Required]
         public double Price { get; set; }
-
-        // add a shipped true/false
-        [BindNever]
-        public bool Shipped { get; set; }
     }
 }

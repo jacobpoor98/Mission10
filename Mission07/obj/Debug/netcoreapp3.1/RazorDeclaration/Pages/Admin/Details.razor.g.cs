@@ -53,9 +53,8 @@ using Mission07.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class Books : OwningComponentBase<IBookProjectRepository>
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books/details/{id:long}")]
+    public partial class Details : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,35 +62,26 @@ using Mission07.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Books.razor"
+#line 62 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Details.razor"
        
 
     // bring in the IBookProjectRepository
-    public IBookProjectRepository repo => Service;
+    [Inject]
+    public IBookProjectRepository repo { get; set; }
 
-    public IEnumerable<Book> BookData { get; set; }
+    // initialize some variables needed above
+    [Parameter]
+    public long Id { get; set; }
 
-    // add some methods
-    protected async override Task OnInitializedAsync()
+    public Book b { get; set; }
+
+    protected override void OnParametersSet()
     {
-        await UpdateData();
+        b = repo.Books.FirstOrDefault(x => x.BookId == Id);
     }
 
-    public async Task UpdateData()
-    {
-        BookData = await repo.Books.ToListAsync();
-    }
-
-    // create paths for getting details and editing so that it takes you to that page
-    // given the BookId passed
-    public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
-
-    public async Task RemoveBook(Book b)
-    {
-        repo.DeleteBook(b);
-        await UpdateData();
-    }
+    // route to edit with the Book ID
+    public string EditUrl => $"/admin/books/edit/{b.BookId}";
 
 
 #line default
