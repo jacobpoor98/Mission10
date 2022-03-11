@@ -85,7 +85,7 @@ using Mission07.Models;
         ShippedOrders = AllOrders.Where(x => x.Shipped);
     }
 
-    public void OrderShipped(int id) => UpdatePurchase(id, true);
+    public void OrderShipped(int id) => UpdatePurchase(id, false);
     public void ResetShippedInfo(int id) => UpdatePurchase(id, false);
 
     private void UpdatePurchase(int id, bool shipped)
