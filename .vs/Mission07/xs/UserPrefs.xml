@@ -1,24 +1,33 @@
 ﻿<Properties StartupConfiguration="{6A21751D-2A49-4777-9929-72C2454BAF2B}|Default">
   <MonoDevelop.Ide.ItemProperties.Mission07 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Pages/Admin/Editor.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Pages/Admin/Books.razor">
     <Files>
-      <File FileName="Mission07/Pages/Admin/Books.razor" Line="71" Column="28" />
-      <File FileName="Mission07/Models/EFBookProjectRepository.cs" Line="1" Column="1" />
-      <File FileName="Mission07/Pages/Admin/Editor.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/Orders.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/OrderTable.razor" Line="3" Column="66" />
+      <File FileName="Mission07/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/Editor.razor" Line="23" Column="39" />
+      <File FileName="Mission07/Pages/Admin/Books.razor" Line="6" Column="55" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Mission07" expanded="True">
             <Node name="Mission07" expanded="True">
-              <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
                 <Node name="Admin" expanded="True">
-                  <Node name="Editor.razor" selected="True" />
+                  <Node name="Books.razor" selected="True" />
                 </Node>
               </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Purchase" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="lib" expanded="True">
+                  <Node name="bootstrap" expanded="True">
+                    <Node name="dist" expanded="True">
+                      <Node name="css" expanded="True">
+                        <Node name="bootstrap.css" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>

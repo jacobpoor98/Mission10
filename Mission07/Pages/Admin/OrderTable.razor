@@ -1,6 +1,6 @@
 ﻿
 @* dynamically build a table showing standing and completed orders *@
-<table class="table table-sm table-striped table-bordered">
+<table class="table table-sm table-dark table-striped table-hover table-bordered">
 
     <thead>
         <tr>
@@ -8,7 +8,7 @@
         </tr>
     </thead>
 
-    <tbdoy>
+    <tbody>
         @* if there are orders, follow these instructions *@
         @if (Orders?.Count() > 0)
         {
@@ -27,6 +27,7 @@
                     </td>
                 </tr>
 
+
                 @foreach (BasketLineItem b in p.Lines)
                 {
                     <tr>
@@ -34,7 +35,8 @@
                         <td>@b.Book.Title</td>
                         <td>@b.Quantity</td>
                     </tr>
-                }
+                 }
+                    
             }
         }
         @* else do this *@
@@ -45,7 +47,7 @@
             </tr>
         }
 
-    </tbdoy>
+    </tbody>
 
 </table>
 

@@ -61,7 +61,7 @@ using Mission07.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/OrderTable.razor"
+#line 58 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/OrderTable.razor"
        
 
     //initilaize some variables

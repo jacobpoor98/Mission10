@@ -14,15 +14,13 @@
     @* display data validators *@
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
-    @if (b.BookId != 0)
-    {
-        <div class="form-group">
-            <label>Book Id</label>
+        <div class="form-group form-floating">
+            <label for="floatinginput">Book Id</label>
             <input class="form-control" disabled @bind-value="b.BookId" />
         </div>
 
-        <div class="form-group">
-            <label>Title:</label>
+        <div class="form-group form-floating">
+            <label for="floatinginput">Title:</label>
             <ValidationMessage For="@(() => b.Title)"></ValidationMessage>
             <InputText class="form-control" @bind-Value="b.Title"></InputText>
         </div>
@@ -71,7 +69,6 @@
 
         <button type="submit" class="btn btn-@ThemeColor">Save</button>
         <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
-    }
 
 
 </EditForm>
@@ -111,6 +108,7 @@
         }
 
         NavManager.NavigateTo("/admin/books");
+        NavManager.NavigateTo("/admin/books", true);
     }
 
     [Inject]

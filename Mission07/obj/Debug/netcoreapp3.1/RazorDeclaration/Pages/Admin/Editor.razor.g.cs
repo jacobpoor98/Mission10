@@ -63,7 +63,7 @@ using Mission07.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Editor.razor"
+#line 76 "/Users/jacob.poor98/Documents/GitHub/Mission10/Mission07/Pages/Admin/Editor.razor"
        
 
     [Parameter]
@@ -99,6 +99,7 @@ using Mission07.Models;
         }
 
         NavManager.NavigateTo("/admin/books");
+        NavManager.NavigateTo("/admin/books", true);
     }
 
     [Inject]
