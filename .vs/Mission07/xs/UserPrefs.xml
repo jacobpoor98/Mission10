@@ -2,9 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.Mission07 PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Pages/Admin/Editor.razor">
     <Files>
-      <File FileName="Mission07/Pages/Admin/Orders.razor" Line="37" Column="66" />
-      <File FileName="Mission07/Pages/Admin/OrderTable.razor" Line="37" Column="18" />
-      <File FileName="Mission07/Models/IPurchaseRepository.cs" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/Books.razor" Line="71" Column="28" />
+      <File FileName="Mission07/Models/EFBookProjectRepository.cs" Line="1" Column="1" />
       <File FileName="Mission07/Pages/Admin/Editor.razor" Line="1" Column="1" />
     </Files>
     <Pads>
